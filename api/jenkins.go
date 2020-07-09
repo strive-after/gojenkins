@@ -1,6 +1,9 @@
 package api
 
-import "net/http"
+import (
+	"net/http"
+	"strings"
+)
 
 type Jenkins struct {
 	Host string
@@ -20,6 +23,11 @@ func NewJenkins(user,password,host,token string) *Jenkins{
 	}
 }
 
+func GetUrl(host ,object , api string) string {
+	host = strings.TrimSuffix(host,"/")
+
+	return "string"
+}
 
 //func (r *Requester) Do(ar *APIRequest, responseStruct interface{}, options ...interface{}) (*http.Response, error) {
 //	if !strings.HasSuffix(ar.Endpoint, "/") && ar.Method != "POST" {

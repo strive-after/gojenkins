@@ -20,6 +20,13 @@ func NewAPIRequest(method string, endpoint string, payload io.Reader) *APIReques
 	ar := &APIRequest{method, endpoint, payload, headers, suffix}
 	return ar
 }
+func NewJsonAPIRequest(method ,endpoint string) *APIRequest  {
+	ar := NewAPIRequest("GET", endpoint, nil)
+	ar.SetHeader("Content-Type", "application/json")
+	ar.Suffix = "api/json"
+	return ar
+}
+
 
 func (ar *APIRequest) SetHeader(key string, value string) *APIRequest {
 	ar.Headers.Set(key, value)
