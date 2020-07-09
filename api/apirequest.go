@@ -27,6 +27,13 @@ func NewJsonAPIRequest(method ,endpoint string) *APIRequest  {
 	return ar
 }
 
+func NewXmlAPIRequest(method ,endpoint string) *APIRequest  {
+	ar := NewAPIRequest("GET", endpoint, nil)
+	ar.SetHeader("Content-Type", "application/xml")
+	ar.Suffix = ""
+	return ar
+}
+
 
 func (ar *APIRequest) SetHeader(key string, value string) *APIRequest {
 	ar.Headers.Set(key, value)

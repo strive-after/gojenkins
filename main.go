@@ -27,7 +27,7 @@ func main() {
 
 	ar := api.NewJsonAPIRequest("get","/")
 
-	req, err := http.NewRequest(ar.Method, "http://39.105.114.198:8080/job/test/api/json", ar.Payload)
+	req, err := http.NewRequest(ar.Method, "http://39.105.114.198:8080/job/testaaabbb/config.xml", ar.Payload)
 	jenkins = api.NewJenkins("admin","123","http://39.105.114.198:8080","")
 	req.SetBasicAuth(jenkins.User,jenkins.Password)
 	responce,err := jenkins.Client.Do(req)
@@ -46,5 +46,5 @@ func main() {
 	//	fmt.Println(err)
 	//	return
 	//}
-	fmt.Printf("%#v\n",string(data))
+	fmt.Printf("%v\n",string(data))
 }
